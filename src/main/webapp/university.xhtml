@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <title>Request type usecase (DAO with MyBatis)</title>
+</h:head>
+
+<h:body>
+    <h1>Request type usecase example (DAO with JPA)</h1>
+    <h:form>
+        <p:fieldset legend="All universities" toggleable="true" style="width: 50%">
+            <p:dataTable value="#{useCaseController.allUniversities}" var="university">
+                <p:column headerText="University">
+                    <h:outputText value="#{university.title}"/>
+                </p:column>
+                <p:column headerText="Students">
+                    <ui:repeat var="student" value="#{university.studentList}">
+                        <h:outputText value="#{student.registrationNo} " />
+                    </ui:repeat>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+        <h2>Create new university</h2>
+        <h:panelGrid columns="3">
+            <p:outputLabel for="universityTitle" value="University name"/>
+            <p:inputText id="universityTitle" value="#{useCaseController.university.title}"/>
+            <p:message for="universityTitle"/>
+        </h:panelGrid>
+
+        <p:commandButton value="Create university"
+                         actionListener="#{useCaseController.createUniversity()}"
+                         ajax="false"/>
+
+        <p:panel header="Add new student" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="name" value="First name:" />
+                <p:inputText id="name" value="#{useCaseController.student.firstName}"/>
+
+                <p:outputLabel for="surname" value="Last name:" />
+                <p:inputText id="surname" value="#{useCaseController.student.lastName}"/>
+
+                <p:outputLabel for="registrationNo" value="Registration no:" />
+                <p:inputText id="registrationNo" value="#{useCaseController.student.registrationNo}"/>
+
+                <p:outputLabel for="course" value="Course:" />
+                <p:inputText id="course" value="#{useCaseController.course.name}"/>
+
+                <p:outputLabel for="university" value="University: " />
+                <p:selectOneMenu id="university" converter="omnifaces.SelectItemsConverter" value="#{useCaseController.student.university}"
+                                 style="width:300px">
+                    <f:selectItem itemLabel="Select University" itemValue="" noSelectionOption="true" />
+                    <f:selectItems itemLabel="#{university.title}"
+                                   value="#{useCaseController.allUniversities}" var="university" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Add passenger"
+                             actionListener="#{useCaseController.createCourseStudent()}"
+                             ajax="false"/>
+
+        </p:panel>
+    </h:form>
+
+</h:body>
+</html>
+

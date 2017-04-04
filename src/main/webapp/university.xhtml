@@ -25,16 +25,16 @@
                 </p:column>
             </p:dataTable>
         </p:fieldset>
-        <h2>Create new university</h2>
-        <h:panelGrid columns="3">
-            <p:outputLabel for="universityTitle" value="University name"/>
-            <p:inputText id="universityTitle" value="#{useCaseController.university.title}"/>
-            <p:message for="universityTitle"/>
-        </h:panelGrid>
+        <!--<h2>Create new university</h2>-->
+        <!--<h:panelGrid columns="3">-->
+            <!--<p:outputLabel for="universityTitle" value="University name"/>-->
+            <!--<p:inputText id="universityTitle" value="#{useCaseController.university.title}"/>-->
+            <!--<p:message for="universityTitle"/>-->
+        <!--</h:panelGrid>-->
 
-        <p:commandButton value="Create university"
-                         actionListener="#{useCaseController.createUniversity()}"
-                         ajax="false"/>
+        <!--<p:commandButton value="Create university"-->
+                         <!--actionListener="#{useCaseController.createUniversity()}"-->
+                         <!--ajax="false"/>-->
 
         <p:panel header="Add new student" style="margin-bottom:10px;">
             <h:panelGrid columns="2" cellpadding="5">

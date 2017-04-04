@@ -8,9 +8,8 @@
     <h:head>
         <title>Request type usecase (DAO with MyBatis)</title>
     </h:head>
-
     <h:body>
-        <h:link outcome="university">Create new university (DAO with JPA)</h:link><br/>
+        <h:link outcome="university">Create new university (DAO with JPA) test</h:link><br/>
         <h1>Request type usecase example (DAO with MyBatis)</h1>
         <h:form>
             <h2>Create new course and student</h2>
@@ -41,10 +40,7 @@
                 </tr>
             </table>
 
-            <p:commandButton value="Create student and course (MyBtis)"
-                             actionListener="#{indexController.createStudent()}"
-                             ajax="false"/>
-            <p:commandButton value="Create student and course (MyBtis)"
+            <p:commandButton value="Create student and course (MyBatis)"
                              actionListener="#{indexController.createStudent()}"
                              ajax="false"/>
 
@@ -58,9 +54,6 @@
                         <ui:repeat var="course" value="#{student.courses}">
                             <h:outputText value="#{course.name} " />
                         </ui:repeat>
-                    </p:column>
-                    <p:column headerText="University">
-                        <h:outputText value="#{student.university.title} " />
                     </p:column>
                 </p:dataTable>
             </p:fieldset>

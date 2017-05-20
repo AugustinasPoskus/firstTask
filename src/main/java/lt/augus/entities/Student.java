@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.johnzon.mapper.JohnzonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -58,5 +59,4 @@ public class Student implements Serializable {
     @JoinColumn(name = "UNIVERSITY_ID", referencedColumnName = "ID")
     @ManyToOne
     private University university;
-
 }

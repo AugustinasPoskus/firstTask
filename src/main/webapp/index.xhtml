@@ -10,6 +10,11 @@
     </h:head>
     <h:body>
         <h:link outcome="university">Create new university (DAO with JPA) test</h:link><br/>
+        <h:link outcome="editStudent">Edit student with opt lock</h:link><br/>
+        <dt><b>Asynchronous calls</b></dt>
+        <dd><p>#{compA.callAsyncMethod()}</p></dd>
+        <p>#{greetings.getGreet()}</p>
+
         <h1>Request type usecase example (DAO with MyBatis)</h1>
         <h:form>
             <h2>Create new course and student</h2>

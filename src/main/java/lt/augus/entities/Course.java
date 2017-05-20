@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.johnzon.mapper.JohnzonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -35,10 +36,11 @@ public class Course implements Serializable {
     @Column(name = "NAME")
     private String name;
 
+    @ManyToMany(mappedBy = "courseList")
+    @JohnzonIgnore
+    private List<Student> studentList = new ArrayList<>();
+
     @Version
     @Column(name = "OPT_LOCK_VERSION")
     private Integer optLockVersion;
-
-    @ManyToMany(mappedBy = "courseList")
-    private List<Student> studentList = new ArrayList<>();
 }
